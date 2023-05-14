@@ -38,24 +38,24 @@
       var searchUrl = "https://www.google.com/search?q=";
       const img = document.getElementById("search-toggle");
       const input = document.getElementById("search-field");
-      input.placeholder = "search with Google";
+      input.placeholder = "Google search";
       img.src = "google.svg";
 
       function changeIcon() {
         if (counter === 0) {
           img.src = "nix-snowflake.svg";
           searchUrl = "https://search.nixos.org/packages?query=";
-          input.placeholder = "nixpkgs search";
+          input.placeholder = "Nixpkgs search";
           counter++;
         } else if (counter === 2) {
           img.src = "google.svg";
           searchUrl = "https://www.google.com/search?q=";
-          input.placeholder = "google search";
+          input.placeholder = "Google search";
           counter = 0;
         } else if (counter === 1) {
           img.src = "youtube.svg";
           searchUrl = "https://www.youtube.com/results?search_query=";
-          input.placeholder = "youtube search";
+          input.placeholder = "Youtube search";
           counter++;
         }
       }
