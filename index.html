@@ -20,6 +20,7 @@
       <!--   <div id="temp" class="inline"></div> -->
       <!-- </div> -->
       <!-- </div> -->
+
       <div id="preloader">
         <img src="nix-snowflake.svg" width="1" height="1" />
         <img src="google.svg" width="1" height="1" />
@@ -74,12 +75,14 @@
       let currentImageIndex = 0;
       const searchToggle = document.getElementById("search-toggle");
       const input = document.getElementById("search-field");
+      let searchUrl = map.get(0).searchurl;
 
       function changeIcon() {
         currentImageIndex = (currentImageIndex + 1) % map.size;
         const currentImage = map.get(currentImageIndex);
         searchToggle.src = currentImage.src;
         input.placeholder = currentImage.placeholder;
+        searchUrl = currentImage.searchurl;
       }
 
       // Search on enter key event
