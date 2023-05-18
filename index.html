@@ -20,10 +20,16 @@
       <!--   <div id="temp" class="inline"></div> -->
       <!-- </div> -->
       <!-- </div> -->
+      <div id="preloader">
+        <img src="nix-snowflake.svg" width="1" height="1" />
+        <img src="google.svg" width="1" height="1" />
+        <img src="youtube.svg" width="1" height="1" />
+      </div>
       <div id="search">
-        <img id="search-toggle" onclick="changeIcon()" />
+        <img src="google.svg" id="search-toggle" onclick="changeIcon()" />
         <input
           id="search-field"
+          placeholder="Google search"
           type="text"
           onkeypress="return search(event)"
           autofocus
@@ -34,30 +40,46 @@
 
     <script src="bookmarks.js"></script>
     <script>
-      var counter = 0;
-      var searchUrl = "https://www.google.com/search?q=";
-      const img = document.getElementById("search-toggle");
+      class image {
+        constructor(src, searchurl, placeholder) {
+          this.src = src;
+          this.searchurl = searchurl;
+          this.placeholder = placeholder;
+        }
+      }
+
+      const nix = new image(
+        "nix-snowflake.svg",
+        "https://search.nixos.org/packages?query=",
+        "Nixpkgs search"
+      );
+
+      const google = new image(
+        "google.svg",
+        "https://www.google.com/search?q=",
+        "Google search"
+      );
+
+      const youtube = new image(
+        "youtube.svg",
+        "https://www.youtube.com/results?search_query=",
+        "Youtube search"
+      );
+
+      const map = new Map();
+      map.set(0, google);
+      map.set(1, nix);
+      map.set(2, youtube);
+
+      let currentImageIndex = 0;
+      const searchToggle = document.getElementById("search-toggle");
       const input = document.getElementById("search-field");
-      input.placeholder = "Google search";
-      img.src = "google.svg";
 
       function changeIcon() {
-        if (counter === 0) {
-          img.src = "nix-snowflake.svg";
-          searchUrl = "https://search.nixos.org/packages?query=";
-          input.placeholder = "Nixpkgs search";
-          counter++;
-        } else if (counter === 2) {
-          img.src = "google.svg";
-          searchUrl = "https://www.google.com/search?q=";
-          input.placeholder = "Google search";
-          counter = 0;
-        } else if (counter === 1) {
-          img.src = "youtube.svg";
-          searchUrl = "https://www.youtube.com/results?search_query=";
-          input.placeholder = "Youtube search";
-          counter++;
-        }
+        currentImageIndex = (currentImageIndex + 1) % map.size;
+        const currentImage = map.get(currentImageIndex);
+        searchToggle.src = currentImage.src;
+        input.placeholder = currentImage.placeholder;
       }
 
       // Search on enter key event
