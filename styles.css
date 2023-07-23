@@ -11,10 +11,10 @@
 /* } */
 
 @font-face {
-    font-family: Terminess;
-    src: url(TerminessNerdFont.ttf) format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: Iosevka;
+  src: url(Iosevka_bold.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 :root {
@@ -27,7 +27,7 @@
   --shadow: RGBA(1, 2, 3, 0.6);
   --border: #15161e;
   --grey: #a89984;
-  --fontFamily: "Terminess";
+  --fontFamily: "Iosevka";
 }
 
 body {
