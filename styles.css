@@ -10,12 +10,12 @@
 /*   --fontFamily: 'Roboto Mono', monospace; */
 /* } */
 
-@font-face {
-  font-family: Iosevka;
-  src: url(Iosevka_bold.ttf) format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
+/* @font-face { */
+/*   font-family: Iosevka; */
+/*   src: url(Iosevka_bold.ttf) format("truetype"); */
+/*   font-weight: normal; */
+/*   font-style: normal; */
+/* } */
 
 :root {
   --bg: #15161e;
@@ -27,7 +27,7 @@
   --shadow: RGBA(1, 2, 3, 0.6);
   --border: #15161e;
   --grey: #a89984;
-  --fontFamily: "Iosevka";
+  --fontFamily: "Roboto";
 }
 
 body {
